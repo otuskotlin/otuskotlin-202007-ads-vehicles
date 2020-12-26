@@ -1,0 +1,81 @@
+GET http://localhost:8080/api/make/index
+Content-Type: application/json
+
+{}
+
+<> 2020-12-15T212150.200.json
+<> 2020-12-15T211944.200.json
+<> 2020-12-15T211813.200.json
+<> 2020-11-27T052652.200.json
+<> 2020-11-25T104003.200.json
+
+###
+
+GET http://localhost:8080/api/model/index
+Content-Type: application/json
+
+{
+  "filter": {
+    "makeId": "0fee08a6f90299dbd4f51d4a7bf03cbb683884a9"
+  }
+}
+
+<> 2020-12-15T212213.200.json
+
+###
+
+GET http://localhost:8080/api/generation/index
+Content-Type: application/json
+
+{
+  "filter": {
+    "modelId": "3e81afef6be6469a95f38c698fb0209c2e8fb821"
+  }
+}
+
+<> 2020-12-15T212305.200.json
+
+###
+
+GET http://localhost:8080/api/equipment/index
+Content-Type: application/json
+
+{
+  "filter": {
+    "generationId": "0720a2fe6024a5b40c19b390f5350d947eb1b581"
+  }
+}
+
+<> 2020-12-15T212623.200.json
+<> 2020-12-15T212340.200.json
+
+###
+
+POST http://localhost:8080/api/ad
+Content-Type: application/json
+
+{
+"year": 2007,
+ "mileage": {
+ "value": 1000,
+   "unit": "km"
+ },
+  "owners": 3,
+  "price": {
+  "amount": 1000000,
+    "currency": "RUB"
+  },
+  "makeId": "0fee08a6f90299dbd4f51d4a7bf03cbb683884a9",
+  "modelId": "3e81afef6be6469a95f38c698fb0209c2e8fb821",
+  "generationId": "0720a2fe6024a5b40c19b390f5350d947eb1b581",
+  "equipmentId": "11dade1da4b116f7c78cc3429bc96e0252840327"
+}
+
+###
+
+GET http://localhost:8080/api/ad
+Content-Type: application/json
+
+{
+"id": "2dbf62b4-e22b-4899-939c-ded1a75679d6"
+}

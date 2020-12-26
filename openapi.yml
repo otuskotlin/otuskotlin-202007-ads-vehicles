@@ -1,0 +1,70 @@
+openapi: 3.0.3
+info:
+  title: Vehicle Ads
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+tags:
+  - name: make
+    description: Операции с Маркой
+paths:
+  /make/index:
+    get:
+      tags:
+        - make
+      summary: Index Make
+      operationId: makeIndex
+      requestBody:
+        description: Request
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MakeIndexRequest'
+        required: true
+      responses:
+        200:
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MakeIndexResponse'
+      x-codegen-request-body-name: body
+
+components:
+  schemas:
+    MakeIndexRequest:
+      type: object
+      properties:
+        limit:
+          type: number
+        offset:
+          type: number
+        filter:
+          $ref: '#/components/schemas/MakeIndexFilter'
+
+    MakeIndexFilter:
+      type: object
+      properties:
+        isoCountry:
+          type: string
+          example: RU
+        searchString:
+          type: string
+
+    Make:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isoCountryCode:
+          type: string
+
+    MakeIndexResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Make'

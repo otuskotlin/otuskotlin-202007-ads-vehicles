@@ -1,10 +1,8 @@
-group = "ru.otus.otuskotlin.202007-ads-vehicles-pb"
-version = "0.0.1"
-
 plugins {
     kotlin("jvm") apply false
     kotlin("multiplatform") apply false
     kotlin("plugin.serialization") apply false
+    id("com.bmuschko.docker-java-application") apply false
 }
 
 group = "ru.otus.otuskotlin.ads_vehicles"
@@ -14,5 +12,6 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        maven { url = uri("https://kotlin.bintray.com/ktor") }
     }
 }
